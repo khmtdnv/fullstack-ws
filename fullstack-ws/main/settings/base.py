@@ -122,3 +122,6 @@ CART_SESSION_ID = "cart"
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 STRIPE_API_VERSION = "2022-08-01"
+
+
+STATIC_ROOT = BASE_DIR / "static"
