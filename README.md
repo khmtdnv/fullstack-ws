@@ -85,26 +85,6 @@
 
 ---
 
-## 📂 Структура проекта
-
-```
-fullstack-ws/
-├── main/              # Backend: Django-приложения
-│   ├── models.py      # Модели (товары, заказы, пользователи)
-│   ├── views.py       # API и веб-страницы
-│   ├── tasks.py       # Celery задачи
-│   └── urls.py
-├── payment/           # Интеграция со Stripe
-│   ├── views.py       # Webhook обработчики
-│   └── utils.py       # Вспомогательная логика
-├── static/            # CSS, JS
-├── templates/         # HTML-шаблоны
-├── requirements.txt   # зависимости проекта
-└── README.md
-```
-
----
-
 ## 🖼 Архитектура проекта
 
 ```mermaid
@@ -211,8 +191,8 @@ flowchart TD
 ## 📞 Контакты
 
 - GitHub: [@khmtdnv](https://github.com/khmtdnv)
-- Email: your.email@example.com
-- Telegram: @yourtelegram
+- Email: marvelous.rust@yandex.ru
+- Telegram: @khmtdnv
 
 ---
 
