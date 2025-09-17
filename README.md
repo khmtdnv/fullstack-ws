@@ -12,7 +12,7 @@
 - **API:** Django REST Framework (CRUD, сериализаторы, авторизация)
 - **Frontend:** HTML5, CSS3, Vanilla JavaScript (ES6+)
 - **База данных:** SQLite (для разработки) → возможность замены на PostgreSQL в production
-- **Асинхронность:** Celery + Redis (фоновые задачи, очередь сообщений)
+- **Асинхронность:** Celery + Redis + RabbitMQ (фоновые задачи, очередь сообщений)
 - **Платежи:** Stripe API (Checkout) + Stripe Webhooks
 - **Интеграция и отладка:** Stripe CLI
 - **Управление зависимостями:** virtualenv, requirements.txt
