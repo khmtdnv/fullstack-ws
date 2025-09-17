@@ -1,4 +1,4 @@
-{% extends 'shop/base.html' %}
+{% extends "shop/base.html" %}
 {% load i18n %}
 {% load static %}
 
@@ -9,39 +9,34 @@
 {% block content %}
   <div class="product_detail">
     <div class="product_img">
-      <img src="{% if product.image %}
-          {{ product.image.url }}
-        {% else %}
-          {% static 'img/no_image.png' %}
-        {% endif %}" />
+      <img src="{% if product.image %}{{ product.image.url }}{% else %}
+      {% static "img/no_image.png" %}{% endif %}">
     </div>
 
     <div class="product_info">
       <h1>{{ product.name }}</h1>
-      <h2><a href="{{ product.category.get_absolute_url }}">{{ product.category }}</a></h2>
+      <h2>
+        <a href="{{ product.category.get_absolute_url }}">
+          {{ product.category }}
+        </a>
+      </h2>
       <p class="price">${{ product.price }}</p>
       <form action="{% url 'cart:cart_add' product.id %}" method="post">
         {{ cart_product_form }}
         {% csrf_token %}
-        <input type="submit" value="{% trans 'Add to cart' %}" />
+        <input type="submit" value="{% trans "Add to cart" %}">
       </form>
       {{ product.description|linebreaks }}
       {% if recommended_products %}
         <div class="recommendations">
-          <h3>{% trans 'People who bought this also bought:' %}</h3>
+          <h3>{% trans "People who bought this also bought" %}</h3>
           {% for p in recommended_products %}
             <div class="itemrec">
               <a href="{{ p.get_absolute_url }}">
-                <img src="{% if p.image %}
-                    {{ p.image.url }}
-                  {% else %}
-                    {% static 'img/no_image.png' %}
-                  {% endif %}"
-                  alt="" />
+                <img src="{% if p.image %}{{ p.image.url}}{% else %}
+                {% static 'img/no_image.png' %}{% endif %}" alt="">
               </a>
-              <p>
-                <a href="{{ p.get_absolute_url }}">{{ p.name }}</a>
-              </p>
+              <p><a href="{{ p.get_absolute_url }}">{{ p.name }}</a></p>
             </div>
           {% endfor %}
         </div>

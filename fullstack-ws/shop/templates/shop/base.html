@@ -1,10 +1,11 @@
+{% load i18n %}
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Shop{% endblock title %}</title>
+    <title>{% block title %}{% trans "Shop" %}{% endblock title %}</title>
 
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 </head>
@@ -12,16 +13,35 @@
     <header class="header">
         <div class="container-header">
             <a href="/" class='logo'><img src="{% static 'img/logo.png' %}" alt=""></a>
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% get_language_info_list for LANGUAGES as languages %}
+            <div class="languages bobek">
+                <p>{% trans "Languages" %}:</p>
+                <ul class="languages">
+                    {% for language in languages %}
+                        <li>
+                            <a href="/{{ language.code }}/"
+                            {% if language.code == LANGUAGE_CODE %} class="selected"{% endif %}>
+                            {{ language.name_local }}
+                            </a>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
 
             <div class="cart-main">
                 {% with total_items=cart|length %}
                     {% if total_items > 0 %}
                         <a href="{% url 'cart:cart_detail' %}" class="cart_btn">
-                            {{ total_items }} item{{ total_items|pluralize }}
-                            ${{ cart.get_total_price }}
+                            {% blocktrans  with total=cart.get_total_price count items=total_items %}
+                                {{ items }} item, ${{ total }}
+                            {% plural %}
+                                {{ items }} items, ${{ total }}
+                            {% endblocktrans %}
                         </a>
-                    {% else %}
-                    Cart is empty.
+                    {% elif not order %}
+                        {% trans "Cart is empty." %}
                     {% endif %}
                 {% endwith %}
             </div>
