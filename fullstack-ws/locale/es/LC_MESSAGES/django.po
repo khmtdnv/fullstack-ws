@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-16 19:19+0500\n"
-"PO-Revision-Date: 2025-09-16 14:19+0000\n"
+"POT-Creation-Date: 2025-09-18 01:42+0500\n"
+"PO-Revision-Date: 2025-09-17 20:42+0000\n"
 "Last-Translator:   <>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -27,11 +27,11 @@ msgstr "Cantidad"
 msgid "Coupon"
 msgstr "Cupón"
 
-#: main/settings/base.py:91
+#: main/settings/base.py:93
 msgid "English"
 msgstr "Inglés"
 
-#: main/settings/base.py:92
+#: main/settings/base.py:94
 msgid "Spanish"
 msgstr "Español"
 
@@ -98,6 +98,18 @@ msgid "Add to cart"
 msgstr "Añadir al carrito"
 
 #: shop/templates/shop/product/detail.html:32
-#| msgid "People who bought this also bought:"
 msgid "People who bought this also bought"
 msgstr "Las personas que compraron este producto también compraron:"
+
+#: shop/templates/shop/product/list.html:5
+#: shop/templates/shop/product/list.html:23
+msgid "Products"
+msgstr "Productos"
+
+#: shop/templates/shop/product/list.html:10
+msgid "Categories"
+msgstr "Categorías"
+
+#: shop/templates/shop/product/list.html:13
+msgid "All"
+msgstr "Todos"
